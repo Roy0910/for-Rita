@@ -1,4 +1,3 @@
-# for-Rita
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,118 +18,85 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 2rem;
+      padding: 1rem;
       transition: background-color 0.5s ease-in-out;
     }
 
-    /* PAGE 1 */
-    #page1 {
-      background-color: black;
-      flex-direction: column;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    #page1, #page2, #page3 {
+      display: none;
       height: 100%;
       width: 100%;
+      max-width: 600px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
+      padding: 1.5rem;
+      border-radius: 15px;
+    }
+
+    #page1 {
+      display: flex;
+      background-color: black;
     }
 
     #page1 h1 {
       color: red;
-      font-size: 4rem;
-      letter-spacing: 2px;
+      font-size: 2.5rem;
       margin-bottom: 2rem;
       text-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
     }
 
-    /* PAGE 2 */
     #page2 {
-      display: none;
-      background-color: #1e2d5a; /* navy blue */
+      background-color: #1e2d5a;
       color: white;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      max-width: 700px;
-      padding: 2rem;
       font-weight: bold;
-      font-size: 1.5rem;       /* smaller font size */
+      font-size: 1.2rem;
       line-height: 1.5;
-      text-align: center;
-      border-radius: 15px;
-      overflow: hidden;
-      box-sizing: border-box;
     }
 
     #page2 > div {
-      max-height: 60vh;        /* limit height */
-      overflow-y: auto;        /* scroll if needed */
+      max-height: 60vh;
+      overflow-y: auto;
       margin-bottom: 2rem;
-      padding-right: 10px;     /* for scrollbar spacing */
+      padding-right: 10px;
     }
 
-    #page2 button {
-      margin-top: 0;
-      flex-shrink: 0;
-      background-color: white;
-      color: black;
-      font-size: 1.3rem;
-      padding: 15px 30px;
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 4px 0 #aaa;
-      cursor: pointer;
-      transition: all 0.2s ease-in-out;
-      font-weight: bold;
-    }
-
-    #page2 button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    /* PAGE 3 */
     #page3 {
-      display: none;
       background-color: white;
-      height: 100%;
-      width: 100%;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 2rem;
     }
 
     .coupon {
       background-color: #ffc0cb;
-      padding: 3rem 4rem;
-      border-radius: 25px;
-      text-align: center;
+      padding: 2rem;
+      border-radius: 20px;
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-      max-width: 500px;
-      width: 90%;
-      font-family: 'Arial', sans-serif;
+      width: 100%;
+      max-width: 400px;
       color: black;
     }
 
     .coupon h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
     }
 
     .coupon p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0;
+      font-size: 1.1rem;
+      margin: 0.4rem 0;
     }
 
-    /* BUTTONS shared style */
+    .coupon .main-line {
+      font-size: 1.6rem;
+      font-weight: bold;
+      margin: 0.5rem 0 1rem;
+    }
+
     button {
       background-color: white;
       color: black;
-      font-size: 1.3rem;
-      padding: 15px 30px;
+      font-size: 1.2rem;
+      padding: 12px 24px;
       border: none;
       border-radius: 10px;
       box-shadow: 0 4px 0 #aaa;
@@ -142,6 +108,25 @@
     button:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    @media (max-width: 480px) {
+      #page1 h1 {
+        font-size: 2rem;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 10px 20px;
+      }
+
+      .coupon h2 {
+        font-size: 1.8rem;
+      }
+
+      .coupon .main-line {
+        font-size: 1.3rem;
+      }
     }
   </style>
 </head>
@@ -169,8 +154,9 @@
   <!-- PAGE 3 -->
   <div id="page3">
     <div class="coupon">
-      <h2>🎀 COUPON FOR 🎀</h2>
-      <p style="font-weight: bold; font-size: 1.5rem;">HUGS and KISSES</p>
+      <h2>🎀 COUPON 🎀</h2>
+      <p>FOR</p>
+      <p class="main-line">HUGS and KISSES</p>
       <p>maximum use: infinite</p>
       <p>expiry date: forever</p>
     </div>
@@ -178,14 +164,12 @@
 
   <script>
     function goToLetter() {
-      // Hide page 1, show page 2, update bg
       document.getElementById('page1').style.display = 'none';
       document.getElementById('page2').style.display = 'flex';
-      document.body.style.backgroundColor = '#1e2d5a'; // navy blue
+      document.body.style.backgroundColor = '#1e2d5a';
     }
 
     function goToCoupon() {
-      // Hide page 2, show page 3, update bg
       document.getElementById('page2').style.display = 'none';
       document.getElementById('page3').style.display = 'flex';
       document.body.style.backgroundColor = 'white';
