@@ -18,41 +18,49 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 1rem;
+      padding: 2rem;
       transition: background-color 0.5s ease-in-out;
     }
 
-    #page1, #page2, #page3 {
-      display: none;
-      height: 100%;
-      width: 100%;
-      max-width: 600px;
+    /* PAGE 1 */
+    #page1 {
+      background-color: black;
       flex-direction: column;
+      display: flex;
       justify-content: center;
       align-items: center;
+      height: 100%;
+      width: 100%;
       text-align: center;
-      padding: 1.5rem;
-      border-radius: 15px;
-    }
-
-    #page1 {
-      display: flex;
-      background-color: black;
     }
 
     #page1 h1 {
       color: red;
       font-size: 2.5rem;
+      letter-spacing: 2px;
       margin-bottom: 2rem;
       text-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
     }
 
+    /* PAGE 2 */
     #page2 {
+      display: none;
       background-color: #1e2d5a;
       color: white;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      width: 100%;
+      max-width: 700px;
+      padding: 2rem;
       font-weight: bold;
       font-size: 1.2rem;
-      line-height: 1.5;
+      line-height: 1.6;
+      text-align: center;
+      border-radius: 15px;
+      overflow: hidden;
+      box-sizing: border-box;
     }
 
     #page2 > div {
@@ -62,41 +70,61 @@
       padding-right: 10px;
     }
 
+    #page2 button {
+      margin-top: 0;
+      flex-shrink: 0;
+    }
+
+    /* PAGE 3 */
     #page3 {
+      display: none;
       background-color: white;
+      height: 100%;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
     }
 
     .coupon {
       background-color: #ffc0cb;
       padding: 2rem;
-      border-radius: 20px;
+      border-radius: 25px;
+      text-align: center;
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      max-width: 500px;
       width: 100%;
-      max-width: 400px;
+      font-family: 'Arial', sans-serif;
       color: black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     .coupon h2 {
-      font-size: 2.2rem;
-      margin-bottom: 0.5rem;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 0.2rem;
+      word-spacing: 4px;
     }
 
     .coupon p {
       font-size: 1.1rem;
       margin: 0.4rem 0;
+      word-break: break-word;
     }
 
-    .coupon .main-line {
-      font-size: 1.6rem;
-      font-weight: bold;
-      margin: 0.5rem 0 1rem;
-    }
-
+    /* BUTTONS shared style */
     button {
       background-color: white;
       color: black;
-      font-size: 1.2rem;
-      padding: 12px 24px;
+      font-size: 1.3rem;
+      padding: 15px 30px;
       border: none;
       border-radius: 10px;
       box-shadow: 0 4px 0 #aaa;
@@ -110,22 +138,26 @@
       box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 600px) {
       #page1 h1 {
         font-size: 2rem;
       }
 
-      button {
+      #page2 {
         font-size: 1rem;
-        padding: 10px 20px;
       }
 
       .coupon h2 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
       }
 
-      .coupon .main-line {
-        font-size: 1.3rem;
+      .coupon p {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 12px 20px;
       }
     }
   </style>
@@ -155,10 +187,10 @@
   <div id="page3">
     <div class="coupon">
       <h2>🎀 COUPON 🎀</h2>
-      <p>FOR</p>
-      <p class="main-line">HUGS and KISSES</p>
-      <p>maximum use: infinite</p>
-      <p>expiry date: forever</p>
+      <p style="font-size: 1.1rem; margin-top: 0.5rem;">FOR</p>
+      <p style="font-weight: bold; font-size: 1.8rem; margin: 0.5rem 0;">HUGS and KISSES</p>
+      <p>maximum use: <strong>infinite</strong></p>
+      <p>expiry date: <strong>forever</strong></p>
     </div>
   </div>
 
